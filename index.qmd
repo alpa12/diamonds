@@ -1,0 +1,31 @@
+---
+title: "Diamonds dataset — ggplot2"
+format: html
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+```{r}
+# Load required package
+library(ggplot2)
+
+# Print current date and time (will appear in the rendered output)
+cat("Generated on: ", format(Sys.time(), "%Y-%m-%d %H:%M:%S %Z"), "\n\n")
+
+# Create a plot of the diamonds dataset
+p <- ggplot(diamonds, aes(x = carat, y = price, color = cut)) +
+  geom_point(alpha = 0.6, size = 1.5) +
+  scale_x_log10() +
+  labs(
+    title = "Diamonds: price vs carat (log10 scale)",
+    subtitle = "Colored by cut",
+    x = "Carat (log10 scale)",
+    y = "Price (USD)"
+  ) +
+  theme_minimal()
+
+# Print the plot
+print(p)
+```
